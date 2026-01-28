@@ -36,7 +36,7 @@ Suggested usage:
     https://feeds.npr.org/1003/rss.xml
     https://feeds.npr.org/1004/rss.xml
     https://feeds.npr.org/1014/rss.xml
-    https://feeds.npr.org/1128/rss.xml
+    https://moxie.foxnews.com/google-publisher/us.xml
     http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
     http://rss.nytimes.com/services/xml/rss/nyt/World.xml
     http://rss.nytimes.com/services/xml/rss/nyt/US.xml
