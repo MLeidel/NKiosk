@@ -19,7 +19,7 @@ Suggested usage:
             cd /p a t h/NKiosk
             python3 nkiosk.pyc
 
->Any terminal that supports __geometry__ is fine.
+>Use a terminal that supports __geometry__ option.
 
 ---
 
@@ -56,7 +56,9 @@ When you hit:
     0 - 98  goes to that feed in your list
     99      ends program
     999     prints out your feeds from the `nkiosk.lst` file
-    
+
+To open a web link for an article use mouse while holding down CTRL key.
+
 ---
 
 inspired by the book:  

@@ -8,13 +8,18 @@ from termcolor import cprint
 import os
 import requests, textwrap
 
+nitems = 6  # max number of rss titles-details to print
+wdesc  = 80  # width of description text for console
+
 List  = open("nkiosk.lst").readlines()  # read in the URLs from file
 nurls = [i.strip() for i in List]
 inx    = 0
 nfeeds = len(nurls)  # number of xml urls in nurls list
-nitems = 6  # max number of news items to print
-wdesc  = 80  # width of description text for console
 
+
+def link(url, label) -> str:
+    ''' Make a terminal labeled-link '''
+    return f"\033]8;;{url}\033\\{label}\033]8;;\033\\"
 
 def display_urls():
     ''' Print the contents of nkiosk.lst '''
@@ -46,22 +51,22 @@ def prompt() -> int:
         if sub == 99:
             exit(0)  # quit program
 
-        #print(f"sub: {sub} nfeeds: {nfeeds}")
         if sub >= 0 and sub <= nfeeds:
             return sub
         else:
-            continue
+            continue  # user input was not valid
 
+# display "page"
 while True:
     r = requests.get(nurls[inx], timeout=15)
-    xx = " -> " + str(inx) + " "
+    xx = " -> " + str(inx) + " "  # use to display rss index number
 
     data = r.text
     soup = BeautifulSoup(data, "xml")  # ready to parse rss
 
     os.system('clear')
     obj = soup.find('title')
-    cprint(obj.getText() + xx, 'green', attrs=['bold', 'reverse'])
+    cprint(obj.getText() + xx, 'green', attrs=['bold', 'reverse'])  # header
 
     item = soup.find_all('item')
 
@@ -75,7 +80,9 @@ while True:
         shoup = BeautifulSoup(desc, "lxml")
         s = shoup.getText()
         print(textwrap.fill(s,wdesc))
-        cprint(item[i].find('link').getText(), 'blue')
+        url = item[i].find('link').getText()
+        lnk = link(url, "more on the web")  # make url into link-label
+        cprint(lnk, 'blue')
         print()
 
     inx = prompt()
