@@ -1,8 +1,7 @@
 # NKiosk RSS Viewer
-### Runs in Terminal 
-
-
 **Headlines at your fingertips**
+
+### Runs in Terminal 
 
 Consists of two files: `nkiosk.py` and `nkiosk.lst`
 
@@ -29,7 +28,7 @@ Suggested usage:
 
 ---
 
-> RSS urls stored in separate text file `nkiosk.lst`
+> RSS feed urls stored in separate text file `nkiosk.lst`
 
 >>
     https://www.chicagotribune.com/latest-headlines/feed/
@@ -43,10 +42,24 @@ Suggested usage:
     http://rss.nytimes.com/services/xml/rss/nyt/US.xml
     https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en
 
+>You may have from 1 to 98 RSS urls. Store them in the `nkiosk.lst` text file, one line per URL.
 
 ---
-inspired by the book:
 
+### Navigation
+
+At the bottom of each page you are prompted for input.  
+
+When you hit:
+
+    ENTER   advances to next rss feed  
+    0 - 98  goes to that feed in your list
+    99      ends program
+    999     prints out your feeds from the `nkiosk.lst` file
+    
+---
+
+inspired by the book:  
 *Automate the Boring Stuff with Python*  
 By Al Sweigart
 	
