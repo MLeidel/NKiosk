@@ -5,24 +5,6 @@
 
 Consists of two files: `nkiosk.py` and `nkiosk.lst`
 
-Requires:
-
-        beautifulsoup4==4.14.3
-        Requests==2.32.5
-        termcolor==3.3.0
-
-Suggested usage:
-
-        xfce4-terminal --geometry=88x50+100+20 -x news.sh &
-
-        news.sh
-            cd /p a t h/NKiosk
-            python3 nkiosk.pyc
-
->Use a terminal that supports __geometry__ option.
-
----
-
 >
 ![terminal](images/nkiosk1.png "Runs in terminal")
 
@@ -58,6 +40,34 @@ When you hit:
     999     prints out your feeds from the `nkiosk.lst` file
 
 To open a web link for an article use mouse while holding down CTRL key.
+
+---
+
+### Requires:
+
+        beautifulsoup4==4.14.3 
+        lxml
+        Requests==2.32.5
+        termcolor==3.3.0
+
+### Suggested usage:
+
+**on Linux**
+
+        xfce4-terminal --geometry=88x50+100+20 -x news.sh &
+
+        news.sh
+            cd /p a t h/NKiosk
+            python3 nkiosk.pyc
+
+>Use a terminal that supports __geometry__ option.
+
+**on Windows**
+
+    news.bat
+        @echo off
+        REM Open a new CMD window and run the NKiosk script
+        start "" cmd /k "cd /d C:\NKiosk && python nkiosk.pyw"
 
 ---
 
